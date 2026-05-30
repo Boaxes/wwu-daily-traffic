@@ -1,19 +1,18 @@
-# 🎈 Blank app template
+# WWU Traffic Report
 
-A simple Streamlit app template for you to modify!
+An interactive Streamlit map of scheduled classroom occupancy across Western Washington University's main campus. Use the weekday and time sliders to explore where students are expected to be during a typical Spring 2026 school day.
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+## Run Locally
 
-### How to run it on your own machine
+Create `.streamlit/secrets.toml` with a Mapbox token:
 
-1. Install the requirements
+```toml
+MAPBOX_TOKEN = "your-mapbox-token"
+```
 
-   ```
-   $ pip install -r requirements.txt
-   ```
+Then install the dependencies and launch the app:
 
-2. Run the app
-
-   ```
-   $ streamlit run streamlit_app.py
-   ```
+```bash
+pip install -r requirements.txt
+streamlit run streamlit_app.py
+```
