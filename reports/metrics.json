@@ -1,0 +1,294 @@
+{
+  "test_year": 2026,
+  "train_terms": [
+    "201640",
+    "201710",
+    "201720",
+    "201740",
+    "201810",
+    "201820",
+    "201840",
+    "201910",
+    "201920",
+    "201940",
+    "202010",
+    "202020",
+    "202040",
+    "202110",
+    "202120",
+    "202140",
+    "202210",
+    "202220",
+    "202240",
+    "202310",
+    "202320",
+    "202340",
+    "202410",
+    "202420",
+    "202440",
+    "202510",
+    "202520",
+    "202540"
+  ],
+  "validation_terms": [
+    "202510",
+    "202520",
+    "202540"
+  ],
+  "test_terms": [
+    "202610",
+    "202620",
+    "202640"
+  ],
+  "params": {
+    "max_depth": 8,
+    "min_child_weight": 1,
+    "subsample": 0.8,
+    "colsample_bytree": 0.6
+  },
+  "n_trees": 515,
+  "n_features": 33,
+  "test_results": {
+    "global_mean": {
+      "all": {
+        "mae_fill_rate": 0.2678322433702217,
+        "rmse_fill_rate": 0.3105581387555111,
+        "r2": -0.028022854966220923,
+        "mae_seats": 7.120875442556097,
+        "n": 6082
+      },
+      "returning_courses": {
+        "mae_fill_rate": 0.26769599707097375,
+        "rmse_fill_rate": 0.3099970930163811,
+        "r2": -0.03175149175521952,
+        "mae_seats": 7.0421562075090804,
+        "n": 5901
+      },
+      "new_courses": {
+        "mae_fill_rate": 0.2722741738224989,
+        "rmse_fill_rate": 0.3283247457630086,
+        "r2": -0.02378045659929562,
+        "mae_seats": 9.687296470249125,
+        "n": 181
+      }
+    },
+    "last_fill_persistence": {
+      "all": {
+        "mae_fill_rate": 0.166046789866438,
+        "rmse_fill_rate": 0.23669416071408497,
+        "r2": 0.4028381876686241,
+        "mae_seats": 4.096346509651581,
+        "n": 6082
+      },
+      "returning_courses": {
+        "mae_fill_rate": 0.16376378773867117,
+        "rmse_fill_rate": 0.2341460532887128,
+        "r2": 0.41138198941566906,
+        "mae_seats": 4.0514494460029145,
+        "n": 5901
+      },
+      "new_courses": {
+        "mae_fill_rate": 0.2404777045402067,
+        "rmse_fill_rate": 0.30844557740822387,
+        "r2": 0.0964406242285536,
+        "mae_seats": 5.560090004628268,
+        "n": 181
+      }
+    },
+    "xgboost": {
+      "all": {
+        "mae_fill_rate": 0.14458633639053645,
+        "rmse_fill_rate": 0.19603695256611944,
+        "r2": 0.5903689912901362,
+        "mae_seats": 3.590892512957775,
+        "n": 6082
+      },
+      "returning_courses": {
+        "mae_fill_rate": 0.14339730369557793,
+        "rmse_fill_rate": 0.19460678385977137,
+        "r2": 0.5933920986668729,
+        "mae_seats": 3.5624196235558205,
+        "n": 5901
+      },
+      "new_courses": {
+        "mae_fill_rate": 0.18335142994274697,
+        "rmse_fill_rate": 0.23800188994048593,
+        "r2": 0.4620270825176438,
+        "mae_seats": 4.519171630973974,
+        "n": 181
+      }
+    }
+  },
+  "mae_without_capacity_features": 0.1484474629810252,
+  "intervals": {
+    "quantiles": [
+      0.1,
+      0.5,
+      0.9
+    ],
+    "target_coverage": 0.8,
+    "params": {
+      "max_depth": 8,
+      "min_child_weight": 1,
+      "subsample": 0.8,
+      "colsample_bytree": 0.6
+    },
+    "n_trees": 894,
+    "calibration_term": "202540",
+    "conformal_offset": 0.020928263664245605,
+    "raw": {
+      "coverage": 0.7245971719829004,
+      "mean_width_fill_rate": 0.4010924696922302,
+      "mean_width_seats": 9.848822877497652,
+      "n": 6082
+    },
+    "conformal": {
+      "coverage": 0.7944755014797764,
+      "mean_width_fill_rate": 0.44194310903549194,
+      "mean_width_seats": 10.979913237052934,
+      "n": 6082
+    }
+  },
+  "backtest": {
+    "years": [
+      {
+        "year": 2019,
+        "train_sections": 15257,
+        "test_sections": 6957,
+        "xgboost_mae": 0.13076425682893944,
+        "baseline_mae": 0.15039358367046562,
+        "xgboost_r2": 0.7394379420405107,
+        "baseline_r2": 0.6289867911376834,
+        "improvement": 0.13051970943479152,
+        "params": {
+          "max_depth": 8,
+          "min_child_weight": 10,
+          "subsample": 0.8,
+          "colsample_bytree": 0.6
+        },
+        "n_trees": 232
+      },
+      {
+        "year": 2020,
+        "train_sections": 22214,
+        "test_sections": 6914,
+        "xgboost_mae": 0.15481965817941631,
+        "baseline_mae": 0.16071905966149463,
+        "xgboost_r2": 0.6573631003895204,
+        "baseline_r2": 0.581406388665131,
+        "improvement": 0.03670629665519198,
+        "params": {
+          "max_depth": 8,
+          "min_child_weight": 10,
+          "subsample": 0.8,
+          "colsample_bytree": 0.6
+        },
+        "n_trees": 328
+      },
+      {
+        "year": 2021,
+        "train_sections": 29128,
+        "test_sections": 6732,
+        "xgboost_mae": 0.14972215356545157,
+        "baseline_mae": 0.16964774772792215,
+        "xgboost_r2": 0.639274872169833,
+        "baseline_r2": 0.5136840673607808,
+        "improvement": 0.1174527479989117,
+        "params": {
+          "max_depth": 4,
+          "min_child_weight": 10,
+          "subsample": 0.8,
+          "colsample_bytree": 0.6
+        },
+        "n_trees": 981
+      },
+      {
+        "year": 2022,
+        "train_sections": 35860,
+        "test_sections": 6647,
+        "xgboost_mae": 0.15233580857200937,
+        "baseline_mae": 0.171467808188765,
+        "xgboost_r2": 0.6285361389254488,
+        "baseline_r2": 0.4672921482451312,
+        "improvement": 0.11157779304960647,
+        "params": {
+          "max_depth": 8,
+          "min_child_weight": 10,
+          "subsample": 0.8,
+          "colsample_bytree": 0.6
+        },
+        "n_trees": 819
+      },
+      {
+        "year": 2023,
+        "train_sections": 42507,
+        "test_sections": 6278,
+        "xgboost_mae": 0.1551364821758667,
+        "baseline_mae": 0.17391793868535596,
+        "xgboost_r2": 0.5866673549042253,
+        "baseline_r2": 0.4191648747830594,
+        "improvement": 0.1079903352779944,
+        "params": {
+          "max_depth": 8,
+          "min_child_weight": 10,
+          "subsample": 0.8,
+          "colsample_bytree": 0.6
+        },
+        "n_trees": 1064
+      },
+      {
+        "year": 2024,
+        "train_sections": 48785,
+        "test_sections": 6295,
+        "xgboost_mae": 0.14676451880290475,
+        "baseline_mae": 0.16657584183911328,
+        "xgboost_r2": 0.6109024788849353,
+        "baseline_r2": 0.4550968163810155,
+        "improvement": 0.11893275049657692,
+        "params": {
+          "max_depth": 6,
+          "min_child_weight": 1,
+          "subsample": 0.8,
+          "colsample_bytree": 0.6
+        },
+        "n_trees": 1580
+      },
+      {
+        "year": 2025,
+        "train_sections": 55080,
+        "test_sections": 6251,
+        "xgboost_mae": 0.14434998756168663,
+        "baseline_mae": 0.16266458235283468,
+        "xgboost_r2": 0.6240225150433107,
+        "baseline_r2": 0.46876225402408145,
+        "improvement": 0.11259116475289,
+        "params": {
+          "max_depth": 8,
+          "min_child_weight": 1,
+          "subsample": 0.8,
+          "colsample_bytree": 0.6
+        },
+        "n_trees": 755
+      },
+      {
+        "year": 2026,
+        "train_sections": 61331,
+        "test_sections": 6082,
+        "xgboost_mae": 0.14458633639053645,
+        "baseline_mae": 0.166046789866438,
+        "xgboost_r2": 0.5903689912901362,
+        "baseline_r2": 0.4028381876686241,
+        "improvement": 0.1292434108070597,
+        "params": {
+          "max_depth": 8,
+          "min_child_weight": 1,
+          "subsample": 0.8,
+          "colsample_bytree": 0.6
+        },
+        "n_trees": 515
+      }
+    ],
+    "mean_improvement": 0.10812677605912784,
+    "years_beating_baseline": 8
+  }
+}

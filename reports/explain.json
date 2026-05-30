@@ -1,0 +1,160 @@
+{
+  "test_mae": 0.14458633639053645,
+  "shap_mean_abs": {
+    "hist_mean_fill": 0.07694000005722046,
+    "demand_ratio": 0.03516000136733055,
+    "subject": 0.027079999446868896,
+    "building": 0.019589999690651894,
+    "prev_fill": 0.01933000050485134,
+    "prev_season_fill": 0.01793999969959259,
+    "prev_enrollment": 0.01638999953866005,
+    "start_minutes": 0.015930000692605972,
+    "course_level": 0.014890000224113464,
+    "capacity": 0.012450000271201134,
+    "schedule_type": 0.007960000075399876,
+    "subject_prev_fill": 0.006010000128298998,
+    "course_capacity": 0.005429999902844429,
+    "prev_season_enrollment": 0.005080000031739473,
+    "year": 0.005030000116676092,
+    "terms_since_offered": 0.0040699997916817665,
+    "times_offered_before": 0.0038999998942017555,
+    "campus": 0.0038900000508874655,
+    "credits": 0.0038799999747425318,
+    "weekly_hours": 0.0029899999499320984,
+    "season": 0.0024500000290572643,
+    "has_number_suffix": 0.00203000009059906,
+    "days_per_week": 0.001930000027641654,
+    "course_sections": 0.0017800000496208668,
+    "sequence_prefix": 0.0015399999683722854,
+    "n_meetings": 0.0008800000068731606,
+    "instructional_method": 0.000750000006519258,
+    "meets_friday": 0.0005600000149570405,
+    "is_online": 0.0005000000237487257,
+    "is_crosslisted": 0.0005000000237487257,
+    "meets_weekend": 9.999999747378752e-06,
+    "is_linked": 0.0,
+    "part_of_term": 0.0
+  },
+  "shap_direction": {
+    "course_level": -0.831,
+    "credits": 0.806,
+    "capacity": -0.763,
+    "n_meetings": 0.05,
+    "days_per_week": 0.005,
+    "start_minutes": -0.485,
+    "weekly_hours": -0.484,
+    "course_capacity": -0.768,
+    "course_sections": 0.219,
+    "prev_fill": 0.897,
+    "prev_enrollment": 0.944,
+    "terms_since_offered": 0.733,
+    "times_offered_before": 0.099,
+    "hist_mean_fill": 0.984,
+    "prev_season_fill": 0.903,
+    "prev_season_enrollment": 0.464,
+    "demand_ratio": 0.928,
+    "subject_prev_fill": 0.772,
+    "is_crosslisted": 0.356,
+    "has_number_suffix": -0.452,
+    "meets_friday": -0.358,
+    "meets_weekend": 0.095,
+    "is_online": -0.275
+  },
+  "feature_labels": {
+    "hist_mean_fill": "Average past fill rate",
+    "demand_ratio": "Demand ratio",
+    "prev_fill": "Fill rate last time offered",
+    "prev_season_fill": "Fill rate, last time in same quarter",
+    "prev_enrollment": "Enrollment last time offered",
+    "prev_season_enrollment": "Enrollment, last time in same quarter",
+    "subject_prev_fill": "Department fill rate last quarter",
+    "times_offered_before": "Times offered before",
+    "terms_since_offered": "Quarters since last offered",
+    "subject": "Department",
+    "building": "Building",
+    "schedule_type": "Type of class",
+    "instructional_method": "Delivery method",
+    "course_level": "Course level",
+    "start_minutes": "Start time",
+    "capacity": "Section capacity",
+    "course_capacity": "Total seats for the course",
+    "course_sections": "Sections of the course",
+    "credits": "Credits",
+    "weekly_hours": "Hours per week",
+    "days_per_week": "Days per week",
+    "year": "Year",
+    "season": "Quarter"
+  },
+  "calibration": [
+    {
+      "predicted": 0.18970000743865967,
+      "actual": 0.191,
+      "actual_low": 0.0,
+      "actual_high": 0.3,
+      "sections": 609
+    },
+    {
+      "predicted": 0.4684999883174896,
+      "actual": 0.4714,
+      "actual_low": 0.28,
+      "actual_high": 0.6595,
+      "sections": 608
+    },
+    {
+      "predicted": 0.6114000082015991,
+      "actual": 0.6344,
+      "actual_low": 0.44,
+      "actual_high": 0.8,
+      "sections": 608
+    },
+    {
+      "predicted": 0.7027999758720398,
+      "actual": 0.7118,
+      "actual_low": 0.56,
+      "actual_high": 0.9,
+      "sections": 608
+    },
+    {
+      "predicted": 0.7738000154495239,
+      "actual": 0.7847,
+      "actual_low": 0.6321,
+      "actual_high": 0.9667,
+      "sections": 608
+    },
+    {
+      "predicted": 0.8305000066757202,
+      "actual": 0.8374,
+      "actual_low": 0.7333,
+      "actual_high": 1.0,
+      "sections": 608
+    },
+    {
+      "predicted": 0.8759999871253967,
+      "actual": 0.8727,
+      "actual_low": 0.8125,
+      "actual_high": 1.0,
+      "sections": 608
+    },
+    {
+      "predicted": 0.911899983882904,
+      "actual": 0.9097,
+      "actual_low": 0.875,
+      "actual_high": 1.0,
+      "sections": 609
+    },
+    {
+      "predicted": 0.9394000172615051,
+      "actual": 0.94,
+      "actual_low": 0.9111,
+      "actual_high": 1.0,
+      "sections": 607
+    },
+    {
+      "predicted": 0.9764000177383423,
+      "actual": 0.9693,
+      "actual_low": 0.9444,
+      "actual_high": 1.0,
+      "sections": 609
+    }
+  ]
+}

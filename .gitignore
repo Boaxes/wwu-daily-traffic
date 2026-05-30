@@ -173,3 +173,15 @@ cython_debug/
 
 # Local Streamlit secrets
 /.streamlit/secrets.toml
+
+# Raw scraped data
+/data/raw/
+
+# Trained models (rebuild with scripts/train_model.py)
+/models/
+
+# Intermediate pipeline outputs (rebuild with scripts/)
+/data/processed/
+
+# Local Claude Code settings
+/.claude/
