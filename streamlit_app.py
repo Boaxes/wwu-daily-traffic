@@ -21,6 +21,10 @@ DAYS = {
 }
 DAY_NAMES = list(DAYS.keys())
 FORECAST_RING_COLOR = [255, 255, 255, 240]
+# Ring tints by forecast miss; a miss of FORECAST_MISS_FULL or more gets the full tint.
+OVER_FORECAST_COLOR = [236, 72, 153, 240]
+UNDER_FORECAST_COLOR = [34, 211, 238, 240]
+FORECAST_MISS_FULL = 0.10
 # Esri World Imagery: satellite tiles that need no API key. Streamlit takes the
 # basemap style as a URL, so the style is inlined as a data URL.
 _SATELLITE_STYLE = {
@@ -195,7 +199,19 @@ def summarize_active_buildings(
     buildings["radius"] = buildings[primary].map(radius)
     buildings["forecast_radius"] = buildings["predicted_students"].map(radius)
     buildings["color"] = buildings[primary].map(occupancy_color)
+    buildings["ring_color"] = [
+        forecast_ring_color(actual, predicted)
+        for actual, predicted in zip(buildings["actual_students"], buildings["predicted_students"])
+    ]
     return buildings
+
+
+def forecast_ring_color(actual: int, predicted: int) -> list[int]:
+    # Sizes share one scale, so small misses barely move the ring; tint shows them.
+    miss = (predicted - actual) / max(actual, 1)
+    weight = min(abs(miss) / FORECAST_MISS_FULL, 1)
+    target = OVER_FORECAST_COLOR if miss > 0 else UNDER_FORECAST_COLOR
+    return [round(white + (tint - white) * weight) for white, tint in zip(FORECAST_RING_COLOR, target)]
 
 
 def occupancy_color(students: int) -> list[int]:
@@ -234,7 +250,7 @@ def build_map(
             get_position="[longitude, latitude]",
             get_radius="radius",
             get_fill_color="color",
-            get_line_color=[255, 255, 255, 230],
+            get_line_color=[20, 24, 28, 200],
             line_width_min_pixels=1,
             stroked=True,
             pickable=True,
@@ -249,8 +265,8 @@ def build_map(
                 data=active_buildings,
                 get_position="[longitude, latitude]",
                 get_radius="forecast_radius",
-                get_line_color=FORECAST_RING_COLOR,
-                line_width_min_pixels=2.5,
+                get_line_color="ring_color",
+                line_width_min_pixels=3,
                 filled=False,
                 stroked=True,
                 pickable=False,
@@ -385,7 +401,7 @@ with layer_column:
             key="forecast-layer",
             disabled=not has_forecast,
             help=(
-                "White rings show the model's forecast, made by a model trained only on "
+                "Rings show the model's forecast, made by a model trained only on "
                 "earlier terms. Forecasts begin in 2019 because the model needs earlier "
                 "terms to learn from."
             ),
@@ -475,8 +491,10 @@ st.pydeck_chart(
 )
 if show_actual and show_forecast:
     st.caption(
-        "Filled circles: students enrolled. White rings: the model's forecast for the same "
+        "Filled circles: students enrolled. Rings: the model's forecast for the same "
         "building, from a model trained only on earlier terms. Both use the same size scale. "
+        "Ring color shows the miss: pink means over-forecast, cyan under-forecast, white "
+        "close to actual (full color at a 10% miss). "
         "Independent studies and other individually arranged sections have no forecast."
     )
 
